@@ -2,6 +2,9 @@
 import sum from './sum';
 import multiply from './multiply';
 
+//importing css
+import './math_output.css';
+
 var total_multiply = multiply(5, 3);
 var totalSum = sum(5, 3);
 

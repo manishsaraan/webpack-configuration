@@ -1,5 +1,7 @@
 //webpack config file
-var path = require('path');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   entry : './src/index.js',
   output : {
@@ -15,7 +17,14 @@ module.exports = {
         query : {
         	presets : ['es2015']
         }
+      },
+      {
+        test : /\.css$/,
+        loaders :ExtractTextPlugin.extract('css-loader')
       }
   	]
-  }
+  },
+  plugins : [
+   new ExtractTextPlugin('style.css')
+  ]
 };
