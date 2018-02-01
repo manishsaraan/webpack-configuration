@@ -6,7 +6,8 @@ module.exports = {
   entry : './src/index.js',
   output : {
   	path : path.resolve(__dirname + '/dist'),
-  	filename : 'bundle.js'
+  	filename : 'bundle.js',
+    publicPath : 'dist/'
   },
   module : {
   	loaders : [
@@ -21,6 +22,13 @@ module.exports = {
       {
         test : /\.css$/,
         loaders :ExtractTextPlugin.extract('css-loader')
+      },
+      {
+        test : /\.png$/,
+        loaders : [
+          'url-loader?limit=5000',
+          'image-webpack-loader'
+        ]
       }
   	]
   },
