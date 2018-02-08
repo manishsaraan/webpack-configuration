@@ -3,3 +3,5 @@ exercise1/dist/
 exercise2/node_modules/
 exercise1/dist/bundle.js
 exercise2/dist/*.jpg
+exercise2/dist/*.js
+
