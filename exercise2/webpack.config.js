@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpckPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 	entry  : {
-		app : './src/index',
-		print : './src/print'
+		app : './src/index',		
 	},
 	output : {
 		filename : '[name].bundle.js',
@@ -14,7 +14,8 @@ module.exports = {
 	},
 	devtool : 'inline-source-map',
 	devServer : {
-		contentBase : './dist/'
+		contentBase : './dist/', //tell webpack to serve files from dist directory
+		hot: true //setting up hot module reload
 	},
 	module : {
 		rules : [
@@ -37,9 +38,11 @@ module.exports = {
 		]
 	},
 	plugins : [
-	   new CleanWebpackPlugin(['dist']),
+	   new CleanWebpackPlugin(['dist']), //clean directory plugin
        new HtmlWebpckPlugin({
        	title : 'output'
-       })
+       }), //modify index.html plugin
+       new webpack.NamedModulesPlugin(),
+       new webpack.HotModuleReplacementPlugin()
 	]
 }

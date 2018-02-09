@@ -2,3 +2,12 @@
   color: red;
   ackground: url('./test.jpg');
 }
+body{
+	background: yellow;
+}
+img{width: 200px;}
+button{
+	background: red;
+	width: 200px;
+	height: 50px;
+}
